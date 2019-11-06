@@ -1,12 +1,12 @@
-package com.example.modelviewpresenter;
+package com.example.modelviewpresenter.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.modelviewpresenter.R;
 
-    int i = 0;
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
