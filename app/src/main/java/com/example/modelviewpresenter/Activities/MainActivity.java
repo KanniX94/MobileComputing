@@ -2,6 +2,7 @@ package com.example.modelviewpresenter.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void loginSuccess() {
 
         Toast.makeText(getApplicationContext(),"Login Success", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(MainActivity.this, SecondView.class));
 
     }
 

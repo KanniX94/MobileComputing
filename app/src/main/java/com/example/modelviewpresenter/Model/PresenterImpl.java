@@ -25,6 +25,7 @@ public class PresenterImpl implements LoginPresenter {
         else{
             if(userName.equals("Sig") && password.equals("1234")){
                 mLoginView.loginSuccess();
+
             }
             else{
                 mLoginView.loginError();
