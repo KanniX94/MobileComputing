@@ -1,7 +1,7 @@
 # MobileComputing
 
 Project created by:
-Marcel Kanne    MSI-AS  294074
+Marcel Kanne    MSI-AS  294074,
 Anatoly Kobasov MSI-AS  299764
 
 
