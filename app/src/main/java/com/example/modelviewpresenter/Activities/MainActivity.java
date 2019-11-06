@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.modelviewpresenter.Model.PresenterImpl;
 import com.example.modelviewpresenter.Presenter.LoginPresenter;
@@ -42,5 +43,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mLoginPresenter.performLogin(userName, password);
 
+    }
+
+    @Override
+    public void loginValidation() {
+
+        Toast.makeText(getApplicationContext(),"Please Enter userName and Password", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void loginSuccess() {
+
+        Toast.makeText(getApplicationContext(),"Login Success", Toast.LENGTH_LONG).show();
+
+    }
+
+    @Override
+    public void loginError() {
+
+        Toast.makeText(getApplicationContext(),"Login Error", Toast.LENGTH_LONG).show();
     }
 }
