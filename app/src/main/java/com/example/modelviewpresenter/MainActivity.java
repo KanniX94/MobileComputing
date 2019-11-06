@@ -1,4 +1,4 @@
-package com.example.modelviewpresenter.Activities;
+package com.example.modelviewpresenter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
