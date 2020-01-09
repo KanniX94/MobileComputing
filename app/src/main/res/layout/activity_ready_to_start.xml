@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:background="@drawable/gradient">
+
+    <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:translationY="-70dp"
+
+        android:scaleX="2"
+        android:scaleY="2"
+        android:src="@drawable/daumenhoch_foreground" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You are ready\nto start!"
+        android:textColor="#FFF"
+        android:textAlignment="center"
+        android:translationY="-40dp"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your records were checked. You are\nready to start. Good luck!"
+        android:textColor="#FFF"
+        android:textAlignment="center"
+        android:translationY="-20dp"
+        android:lineSpacingExtra="10sp"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btnDone"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:padding="12dp"
+        android:textSize="22sp"
+        android:textColor="#888"
+        android:textStyle="bold"
+        android:background="#FFF"
+        android:text="Done"
+        android:gravity="center"
+
+        />
 
 </LinearLayout>
