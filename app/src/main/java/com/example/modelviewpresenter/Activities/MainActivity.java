@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void loginSuccess() {
 
         Toast.makeText(getApplicationContext(),"Login Success", Toast.LENGTH_LONG).show();
-        startActivity(new Intent(MainActivity.this, SecondView.class));
+        //startActivity(new Intent(MainActivity.this, SecondView.class));
 
     }
 
