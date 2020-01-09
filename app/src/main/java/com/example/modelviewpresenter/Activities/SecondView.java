@@ -12,7 +12,7 @@ import com.example.modelviewpresenter.R;
 
 public class SecondView extends AppCompatActivity implements View.OnClickListener {
 
-    TextView tvLogout;
+    TextView tvLogout, tvLjjj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
