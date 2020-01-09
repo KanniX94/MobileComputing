@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:background="@drawable/gradient">
+
+    <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:translationY="-70dp"
+
+        android:scaleX="2"
+        android:scaleY="2"
+        android:src="@mipmap/iconsecfore_foreground" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thanks for your \n registration"
+        android:textColor="#FFF"
+        android:textAlignment="center"
+        android:translationY="-40dp"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thanks for registering.\n You got  mail from us.\n In this mail you have to\nconfirm you registration."
+        android:textColor="#FFF"
+        android:textAlignment="center"
+        android:translationY="-20dp"
+        android:lineSpacingExtra="10sp"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btGoToLogin"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:padding="9dp"
+        android:textSize="12sp"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:background="#FFF"
+        android:text="Go to Login"
+        android:gravity="center"
+        android:backgroundTint="@android:color/transparent"
+        style="@style/Widget.AppCompat.Button.Borderless"
+
+        />
 
 </LinearLayout>
+

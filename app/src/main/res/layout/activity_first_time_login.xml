@@ -1,6 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:background="@drawable/gradient">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thanks for logging\nin the first time!"
+        android:layout_marginTop="-80dp"
+        android:textColor="#FFF"
+        android:textAlignment="center"
+        android:translationY="-40dp"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You can now either complete your profile\n (personal data, address, insurance)\n or get to know the app with limited functionality."
+        android:textColor="#FFF"
+        android:textAlignment="center"
+        android:translationY="-20dp"
+        android:lineSpacingExtra="10sp"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCompleteProfile"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/iconprofile_foreground"
+            android:drawableTint="#FFF"
+            android:layout_weight="1"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="1dp"
+            android:textSize="9sp"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:background="#FFF"
+            android:text="Complete\n your profile"
+            android:backgroundTint="#00f2fe"
+            />
+
+        <Button
+            android:id="@+id/btnCGetToKnow"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:drawableLeft="@drawable/checkoutapp_foreground"
+            android:drawableTint="#FFF"
+            android:layout_weight="1"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="1dp"
+            android:textSize="9sp"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:background="#FFF"
+            android:text="Get to know\n the app"
+            android:backgroundTint="#00f2fe"
+            />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Why do we need all the data?\nCheck out in the video:"
+        android:textColor="#FFF"
+        android:textAlignment="textStart"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:lineSpacingExtra="10sp"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingTop="15dp"
+        android:scaleX="5"
+        android:scaleY="6"
+        android:src="@mipmap/rooboter_foreground"
+
+        />
+
 
 </LinearLayout>
+
