@@ -10,9 +10,15 @@
         android:id="@+id/btnBackPD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:translationY="-120dp"
         android:gravity="center_horizontal"
         android:padding="2dp" >
+=======
+        android:translationY="-130dp"
+        android:gravity="center_horizontal"
+        android:paadding="2dp" >
+>>>>>>> resxml
 
         <ImageView
 
@@ -33,12 +39,19 @@
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> resxml
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Personal Data"
+<<<<<<< HEAD
         android:layout_marginTop="-60dp"
+=======
+        android:layout_marginTop="-80dp"
+>>>>>>> resxml
         android:textColor="#FFF"
         android:textAlignment="center"
         android:translationY="-40dp"
@@ -54,6 +67,7 @@
         android:lineSpacingExtra="10sp"
         android:textSize="16sp" />
 
+<<<<<<< HEAD
     <TextView
         android:id="@+id/etGenderrr"
         android:layout_height="wrap_content"
@@ -65,10 +79,22 @@
         android:hint="Gender"
         android:inputType="text"
         android:textSize="18sp"
+=======
+    <EditText
+        android:id="@+id/etGender"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:hint="Gender"
+        android:inputType="text"
+>>>>>>> resxml
         android:textColorHint="@android:color/white"
         android:backgroundTint="@android:color/white"
         />
 
+<<<<<<< HEAD
     <LinearLayout
         android:id="@+id/LinearLayout02"
         android:layout_height="wrap_content"
@@ -99,12 +125,17 @@
             android:text="Woman" />
     </LinearLayout>
 
+=======
+>>>>>>> resxml
 
     <EditText
         android:id="@+id/etPersonalName"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_marginTop="15dp"
+=======
+>>>>>>> resxml
         android:layout_marginRight="25dp"
         android:layout_marginLeft="25dp"
         android:textColorHint="@android:color/white"
@@ -117,7 +148,10 @@
         android:id="@+id/etPersonalSurName"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_marginTop="15dp"
+=======
+>>>>>>> resxml
         android:layout_marginRight="25dp"
         android:layout_marginLeft="25dp"
         android:textColorHint="@android:color/white"
@@ -131,10 +165,17 @@
         android:id="@+id/etPersonalBD"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_marginTop="15dp"
         android:layout_marginRight="25dp"
         android:layout_marginLeft="25dp"
         android:hint="yyyy-mm-dd"
+=======
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:hint="yyyy.mm.dd"
+>>>>>>> resxml
         android:inputType="text"
         android:textColorHint="@android:color/white"
         android:backgroundTint="@android:color/white"
@@ -145,7 +186,11 @@
         android:id="@+id/etPersonalPhone"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_marginTop="15dp"
+=======
+        android:layout_marginTop="25dp"
+>>>>>>> resxml
         android:layout_marginRight="25dp"
         android:layout_marginLeft="25dp"
         android:hint="Phone"
