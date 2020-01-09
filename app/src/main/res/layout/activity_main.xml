@@ -6,7 +6,32 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_vertical"
+    android:background="@drawable/gradient"
     tools:context=".Activities.MainActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome!"
+        android:textColor="#FFF"
+        android:textAlignment="center"
+        android:translationY="-90dp"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/textLogWith"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login with your email and password."
+        android:textColor="#FFF"
+        android:textAlignment="center"
+        android:translationY="-70dp"
+        android:textSize="16sp" />
+
+
+
 
     <EditText
         android:id="@+id/etUserName"
@@ -14,8 +39,10 @@
         android:layout_width="match_parent"
         android:layout_marginRight="25dp"
         android:layout_marginLeft="25dp"
+        android:textColorHint="@android:color/white"
         android:hint="Enter UserName"
         android:inputType="textPersonName"
+        android:backgroundTint="@android:color/white"
         />
 
     <EditText
@@ -27,10 +54,12 @@
         android:layout_marginLeft="25dp"
         android:hint="Enter Password"
         android:inputType="textPassword"
+        android:textColorHint="@android:color/white"
+        android:backgroundTint="@android:color/white"
         />
 
 
-    <TextView
+    <Button
         android:id="@+id/tvLogin"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -39,11 +68,33 @@
         android:layout_marginLeft="25dp"
         android:padding="12dp"
         android:textSize="22sp"
+        android:textColor="#888"
+        android:textStyle="bold"
+        android:background="#FFF"
+        android:text="Login"
+        android:gravity="center"
+
+        />
+
+    <Button
+        android:id="@+id/btGoToReg"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:padding="9dp"
+        android:textSize="12sp"
         android:textColor="#FFF"
         android:textStyle="bold"
-        android:background="@color/colorPrimaryDark"
-        android:text="LOGIN"
+        android:background="#FFF"
+        android:text="Click here to register"
         android:gravity="center"
+        android:backgroundTint="@android:color/transparent"
+        style="@style/Widget.AppCompat.Button.Borderless"
         />
+
+
+
 
 </LinearLayout>
