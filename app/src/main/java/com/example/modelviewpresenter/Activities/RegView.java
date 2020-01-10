@@ -1,15 +1,9 @@
 package com.example.modelviewpresenter.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,23 +11,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.modelviewpresenter.Model.PresenterImpl;
-
+import androidx.appcompat.app.AppCompatActivity;
+import com.example.modelviewpresenter.Model.RegPresenterImpl;
 import com.example.modelviewpresenter.Network.DownloadCallback;
 import com.example.modelviewpresenter.Network.NetworkFragment;
-import com.example.modelviewpresenter.Presenter.LoginPresenter;
-
+import com.example.modelviewpresenter.Presenter.RegisterPresenter;
 import com.example.modelviewpresenter.R;
-import com.example.modelviewpresenter.View.LoginView;
+import com.example.modelviewpresenter.View.RegisterView;
 
 
+public class RegView extends AppCompatActivity implements RegisterView, DownloadCallback {
 
-public class MainActivity extends AppCompatActivity implements LoginView, DownloadCallback {
+    EditText etrUserName, etrPassword, etrConfirmPassword;
+    RegisterPresenter mRegisterPresenter;
+    Button btnRegister;
 
-    public static String ACCESS_TOKEN= "ACCESS_TOKEN";
-    EditText etUserName, etPassword;
-    LoginPresenter mLoginPresenter;
-    String accesstoken;
 
     // Keep a reference to the NetworkFragment, which owns the AsyncTask object
     // that is used to execute network ops.
@@ -44,17 +36,52 @@ public class MainActivity extends AppCompatActivity implements LoginView, Downlo
     private boolean downloading = false;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_reg);
 
         defineButton();
-        etUserName = findViewById(R.id.etUserName);
-        etPassword = findViewById(R.id.etPassword);
-        mLoginPresenter = new PresenterImpl(MainActivity.this);
+        etrUserName = findViewById(R.id.etrUserName);
+        etrPassword = findViewById(R.id.etrPassword);
+        etrConfirmPassword = findViewById(R.id.etrConfirmPassword);
+        mRegisterPresenter = new RegPresenterImpl(RegView.this);
+
+        btnRegister = findViewById(R.id.btnRegister);
+        //btnRegister.setOnClickListener(this);
+
+        //textView = this.findViewById(R.id.textView);
+
+        //Network fragment
         networkFragment = NetworkFragment.getInstance(getSupportFragmentManager(), "https://dev.api.digital-nursing-service.ucura.com/api/v1");
+
     }
+
+    public void defineButton() {
+        findViewById(R.id.btnRegister).setOnClickListener(buttonClickListener);
+        findViewById(R.id.textAlreadyRegist).setOnClickListener(buttonClickListener);
+
+    }
+
+    public View.OnClickListener buttonClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.btnRegister:
+                    String userName = etrUserName.getText().toString();
+                    String password = etrPassword.getText().toString();
+                    String confirmPassword = etrConfirmPassword.getText().toString();
+                    mRegisterPresenter.performRegister(userName, password, confirmPassword);
+                    //mLoginPresenter.performLogin(userName, password);
+                    break;
+                case R.id.btGoToLog:
+                    //moveToRegPage();
+                    startActivity(new Intent(RegView.this, MainActivity.class));
+                    break;
+            }
+        }
+    };
 
     private void startDownload(int t) {
         if (!downloading && networkFragment != null) {
@@ -62,55 +89,51 @@ public class MainActivity extends AppCompatActivity implements LoginView, Downlo
             int downloadType = t;
             networkFragment.startDownload(downloadType);
             downloading = true;
+
+
         }
     }
-
-    public void defineButton() {
-        findViewById(R.id.tvLogin).setOnClickListener(buttonClickListener);
-        findViewById(R.id.btGoToReg).setOnClickListener(buttonClickListener);
-
-    }
-
-
-
-    public View.OnClickListener buttonClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.tvLogin:
-                    String userName = etUserName.getText().toString();
-                    String password = etPassword.getText().toString();
-                    mLoginPresenter.performLogin(userName, password);
-                    break;
-                case R.id.btGoToReg:
-                    //mRegisterPresenter.moveToRegisterView();
-                    moveToRegPage();
-                    break;
-            }
-        }
-    };
-
-    //diese fkt auslagern später
-    public void moveToRegPage(){
-        startActivity(new Intent(MainActivity.this, RegView.class));
-    }
+/*
 
     @Override
-    public void loginValidation() {
+    public void onClick(View v) {
+        //After user has put his email and pw, performRegister is called
+
+        String userName = etrUserName.getText().toString();
+        String password = etrPassword.getText().toString();
+        String confirmPassword = etrConfirmPassword.getText().toString();
+        mRegisterPresenter.performRegister(userName, password, confirmPassword);
+
+
+
+}
+*/
+
+    @Override
+    public void registerValidation() {
+
         Toast.makeText(getApplicationContext(),"Please Enter userName and Password", Toast.LENGTH_LONG).show();
+
     }
 
     @Override
-    public void loginSuccess() {
-        startDownload(2);
-        Toast.makeText(getApplicationContext(),"Login Success", Toast.LENGTH_LONG).show();
-        //startActivity(new Intent(MainActivity.this, FirstLoginView.class));
+    public void registerSuccess() {
+
+        //Start download after click on register button
+        startDownload(1);
+
+        Toast.makeText(getApplicationContext(),"Register Success", Toast.LENGTH_LONG).show();
+        //startActivity(new Intent(RegView.this, DataPrivacy.class));
+
     }
 
     @Override
-    public void loginError() {
-        Toast.makeText(getApplicationContext(),"Login Error", Toast.LENGTH_LONG).show();
+    public void registerError() {
+
+        Toast.makeText(getApplicationContext(),"Register Error", Toast.LENGTH_LONG).show();
+
     }
+
 
     @Override
     public void updateFromDownload(Object result) {
@@ -118,16 +141,9 @@ public class MainActivity extends AppCompatActivity implements LoginView, Downlo
             Toast.makeText(getApplicationContext(), "No result", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(getApplicationContext(), "Result : " + result.toString(), Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this, FirstLoginView.class);
-            accesstoken = result.toString();
-            String [] parts = accesstoken.split(":");
-            String[] newParts = parts[1].split(",");
-            String lastParts = newParts[0].substring(1, newParts[0].length() - 1);
-
-            intent.putExtra(this.ACCESS_TOKEN, lastParts);
-
-            startActivity(intent);
+            startActivity(new Intent(RegView.this, DataPrivacy.class));
         }
+
     }
 
     @Override
@@ -168,36 +184,37 @@ public class MainActivity extends AppCompatActivity implements LoginView, Downlo
         if (networkFragment != null) {
             networkFragment.cancelDownload();
         }
+
     }
+
+
+
 
     @Override
     public String getRegMail() {
-        return null;
+        EditText mail= findViewById(R.id.etrUserName);
+        return mail.getText().toString();
     }
 
     @Override
     public String getRegPassword() {
-        return null;
-    }
-
-    @Override
-    public String getMail() {
-        EditText mail= findViewById(R.id.etUserName);
-        return mail.getText().toString();
-    }
-
-
-
-    @Override
-    public String getPassword() {
-        EditText pw = findViewById(R.id.etPassword);
+        EditText pw = findViewById(R.id.etrPassword);
         return pw.getText().toString();
     }
 
     @Override
+    public String getMail() {
+        return null;
+    }
+
+    @Override
+    public String getPassword() {
+        return null;
+    }
+
+    @Override
     public String getAccesstoken() {
-        String at = "Bearer " + accesstoken;
-        return at;
+        return null;
     }
 
     @Override
@@ -250,6 +267,9 @@ public class MainActivity extends AppCompatActivity implements LoginView, Downlo
         return null;
     }
 
+    //Später überarbeiten, andere Lsg falls Zeit da ist
+
+
+
 
 }
-
