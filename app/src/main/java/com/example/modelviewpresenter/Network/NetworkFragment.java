@@ -1,5 +1,6 @@
 package com.example.modelviewpresenter.Network;
 
+<<<<<<< HEAD
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -412,4 +413,7 @@ public class NetworkFragment extends Fragment {
             return buffer.toString();
         }
     }
+=======
+public class NetworkFragment {
+>>>>>>> 2e29eb532dc84ada55ed4278807234530a15849b
 }
