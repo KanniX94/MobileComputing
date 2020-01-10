@@ -23,7 +23,7 @@ public class PresenterImpl implements LoginPresenter {
             mLoginView.loginValidation();
         }
         else{
-            if(userName.equals("Sig") && password.equals("1234")){
+            if(!userName.isEmpty()){
                 mLoginView.loginSuccess();
 
             }
@@ -33,4 +33,6 @@ public class PresenterImpl implements LoginPresenter {
         }
 
     }
+
 }
+
