@@ -27,4 +27,24 @@ public interface DownloadCallback {
      * Indicates that the download operation has finished. This method is called even if the
      * download hasn't completed successfully.
      */
+
+    String getMail();
+    String getRegMail();
+    String getRegPassword();
+
+    String getPassword();
+    String getAccesstoken();
+
+    //Address
+    String getNumber();
+    String getZip();
+    String getCity();
+    String getStreet();
+    String getCountry();
+    //Personal data
+    String getGender();
+    String getFirstname();
+    String getLastname();
+    String getBirthday();
+    String getPhone();
 }
