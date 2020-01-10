@@ -16,13 +16,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.example.modelviewpresenter.Activities.AddressData;
-import com.example.modelviewpresenter.Activities.MainActivity;
-import com.example.modelviewpresenter.Activities.PersonalData;
-import com.example.modelviewpresenter.Activities.RegView;
-import com.example.modelviewpresenter.View.AddrDataView;
-import com.example.modelviewpresenter.View.LoginView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
