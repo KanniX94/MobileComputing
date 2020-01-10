@@ -1,6 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:background="@drawable/gradient">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:translationY="-60dp"
+
+        android:scaleX="2"
+        android:scaleY="2"
+        android:src="@mipmap/iconsecfore_foreground" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Data privacy"
+        android:textColor="#FFF"
+        android:textAlignment="center"
+        android:translationY="-40dp"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="We attach great importance to\n data protection. Therefore and\n complete transparency is\n important. We only use the data to\n offer you the best possible service."
+        android:textColor="#FFF"
+        android:textAlignment="center"
+        android:translationY="-20dp"
+        android:lineSpacingExtra="10sp"
+        android:textSize="16sp" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFF"
+        android:padding="17dp"
+        android:buttonTint="#FFF"
+        android:text="Consent type one" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFF"
+        android:padding="17dp"
+        android:buttonTint="#FFF"
+        android:text="Consent type two" />
+
+    <Button
+        android:id="@+id/btnDPaccept"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="25dp"
+        android:padding="12dp"
+        android:textSize="22sp"
+        android:textColor="#888"
+        android:textStyle="bold"
+        android:background="#FFF"
+        android:text="Accept"
+        android:gravity="center"
+
+        />
+
+
+
 
 </LinearLayout>
+
