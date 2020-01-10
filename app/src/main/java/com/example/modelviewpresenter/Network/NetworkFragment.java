@@ -1,6 +1,6 @@
 package com.example.modelviewpresenter.Network;
 
-<<<<<<< HEAD
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -139,9 +139,11 @@ public class NetworkFragment extends Fragment {
         class Result {
             public String resultValue;
             public Exception exception;
+
             public Result(String resultValue) {
                 this.resultValue = resultValue;
             }
+
             public Result(Exception exception) {
                 this.exception = exception;
             }
@@ -180,7 +182,7 @@ public class NetworkFragment extends Fragment {
                     } else {
                         throw new IOException("No response received.");
                     }
-                } catch(Exception e) {
+                } catch (Exception e) {
                     result = new Result(e);
                 }
             }
@@ -220,7 +222,7 @@ public class NetworkFragment extends Fragment {
             HttpsURLConnection connection = null;
             String result = null;
             String s;
-            JSONObject cred   = new JSONObject();
+            JSONObject cred = new JSONObject();
 
             //Registration
             //RegView mReg = new RegView();
@@ -337,10 +339,10 @@ public class NetworkFragment extends Fragment {
                 connection.setReadTimeout(3000);
                 // Timeout for connection.connect() arbitrarily set to 3000ms.
                 connection.setConnectTimeout(3000);
-                if(downloadType == 5 || downloadType == 6){
+                if (downloadType == 5 || downloadType == 6) {
                     connection.setRequestProperty("Content-Type", "application/json");
                     connection.setRequestProperty("Authorization", mAccesstoken);
-                }else{
+                } else {
                     connection.setRequestProperty("Content-Type", "application/json");
                     connection.setRequestProperty("Accept", "application/json");
                 }
@@ -351,9 +353,9 @@ public class NetworkFragment extends Fragment {
                     connection.setRequestMethod("PUT");
                 } else if (downloadType == 4) {
                     connection.setRequestMethod("DEL");
-                } else if (downloadType == 5){
+                } else if (downloadType == 5) {
                     connection.setRequestMethod("POST");
-                } else if(downloadType == 6){
+                } else if (downloadType == 6) {
                     connection.setRequestMethod("PUT");
                 }
                 // Already true by default but setting just in case; needs to be true since this request
@@ -363,7 +365,7 @@ public class NetworkFragment extends Fragment {
                 String js = cred.toString();
 
 
-                OutputStreamWriter wr= new OutputStreamWriter(connection.getOutputStream());
+                OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
                 wr.write(cred.toString());
                 wr.flush();
                 wr.close();
@@ -393,6 +395,7 @@ public class NetworkFragment extends Fragment {
             }
             return result;
         }
+
         /**
          * Converts the contents of an InputStream to a String.
          */
@@ -413,7 +416,4 @@ public class NetworkFragment extends Fragment {
             return buffer.toString();
         }
     }
-=======
-public class NetworkFragment {
->>>>>>> 2e29eb532dc84ada55ed4278807234530a15849b
 }

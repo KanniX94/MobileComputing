@@ -9,10 +9,9 @@ public interface DownloadCallback<T> {
         int GET_INPUT_STREAM_SUCCESS = 1;
         int PROCESS_INPUT_STREAM_IN_PROGRESS = 2;
         int PROCESS_INPUT_STREAM_SUCCESS = 3;
-<<<<<<< HEAD
 
-=======
->>>>>>> 2e29eb532dc84ada55ed4278807234530a15849b
+
+
     }
 
     /**
@@ -37,7 +36,7 @@ public interface DownloadCallback<T> {
      * Indicates that the download operation has finished. This method is called even if the
      * download hasn't completed successfully.
      */
-<<<<<<< HEAD
+
     void finishDownloading();
 
 
@@ -45,16 +44,8 @@ public interface DownloadCallback<T> {
     String getRegMail();
     String getRegPassword();
 
-    String getMail();
-=======
-
-    void finishDownloading();
 
     String getMail();
-    String getRegMail();
-    String getRegPassword();
-
->>>>>>> 2e29eb532dc84ada55ed4278807234530a15849b
     String getPassword();
     String getAccesstoken();
 
