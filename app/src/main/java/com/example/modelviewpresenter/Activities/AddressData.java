@@ -1,6 +1,8 @@
 package com.example.modelviewpresenter.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
@@ -117,15 +119,25 @@ public class AddressData extends AppCompatActivity implements AddrDataView, Down
         }
     }
 
-
     @Override
     public void updateFromDownload(Object result) {
-
+        if (result == null) {
+            Toast.makeText(getApplicationContext(), "No result", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Result : " + result.toString(), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(AddressData.this, ReadyToStart.class);
+            intent.putExtra(MainActivity.ACCESS_TOKEN, accesstoken);
+            startActivity(intent);
+        }
     }
 
     @Override
     public NetworkInfo getActiveNetworkInfo() {
-        return null;
+        ConnectivityManager connectivityManager =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        Toast.makeText(getApplicationContext(), "getActiveNetworkInfo : ", Toast.LENGTH_SHORT).show();
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return networkInfo;
     }
 
     @Override
@@ -135,7 +147,45 @@ public class AddressData extends AppCompatActivity implements AddrDataView, Down
 
     @Override
     public void finishDownloading() {
+        downloading = false;
+        if (networkFragment != null) {
+            networkFragment.cancelDownload();
+        }
+    }
 
+    @Override
+    public String getAccesstoken() {
+        return accesstoken;
+    }
+
+    @Override
+    public String getNumber() {
+        EditText number= findViewById(R.id.etHausnummer);
+        return number.getText().toString();
+    }
+
+    @Override
+    public String getZip() {
+        EditText zipcode= findViewById(R.id.etZipCode);
+        return zipcode.getText().toString();
+    }
+
+    @Override
+    public String getCity() {
+        EditText city= findViewById(R.id.etCity);
+        return city.getText().toString();
+    }
+
+    @Override
+    public String getStreet() {
+        EditText street= findViewById(R.id.etStreet);
+        return street.getText().toString();
+    }
+
+    @Override
+    public String getCountry() {
+        EditText country= findViewById(R.id.etCountry);
+        return country.getText().toString();
     }
 
     @Override
@@ -155,36 +205,6 @@ public class AddressData extends AppCompatActivity implements AddrDataView, Down
 
     @Override
     public String getPassword() {
-        return null;
-    }
-
-    @Override
-    public String getAccesstoken() {
-        return null;
-    }
-
-    @Override
-    public String getNumber() {
-        return null;
-    }
-
-    @Override
-    public String getZip() {
-        return null;
-    }
-
-    @Override
-    public String getCity() {
-        return null;
-    }
-
-    @Override
-    public String getStreet() {
-        return null;
-    }
-
-    @Override
-    public String getCountry() {
         return null;
     }
 
