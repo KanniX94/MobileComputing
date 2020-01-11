@@ -1,7 +1,9 @@
 package com.example.modelviewpresenter.Activities;
 
 import android.content.Intent;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -40,6 +42,7 @@ public class AddressData extends AppCompatActivity implements AddrDataView, Down
         setContentView(R.layout.activity_address_data);
 
         mAddrDataPresenter = new AddrDataPresImpl(AddressData.this);
+        defineButton();
         btnAddressNext= findViewById(R.id.btnAddressNext);
         etStreet = findViewById(R.id.etStreet);
         etHausnummer = findViewById(R.id.etHausnummer);
@@ -53,6 +56,147 @@ public class AddressData extends AppCompatActivity implements AddrDataView, Down
 
 
         networkFragment = NetworkFragment.getInstance(getSupportFragmentManager(), "https://dev.api.digital-nursing-service.ucura.com/api/v1");
+
+    }
+
+    private void defineButton() {
+        findViewById(R.id.btnAddressNext).setOnClickListener(buttonClickListener);
+    }
+
+    public View.OnClickListener buttonClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.btnPersonalNext:
+                    //String gender = .getText().toString();
+                    String street = etStreet.getText().toString();
+                    String hausnummer = etHausnummer.getText().toString();
+                    String zipCode = etZipCode.getText().toString();
+                    String city = etCity.getText().toString();
+                    String country = etCountry.getText().toString();
+                    mAddrDataPresenter.performAddrData(street, hausnummer, zipCode, city, country);
+
+                    //Intent intent = new Intent(AddressData.this, ReadyToStart.class);
+                    //intent.putExtra(MainActivity.ACCESS_TOKEN, accesstoken);
+                    //startActivity(intent);
+
+                    break;
+                case R.id.btGoToReg:
+                    //mRegisterPresenter.moveToRegisterView();
+                    //moveToRegPage();
+
+                    break;
+            }
+        }
+    };
+
+    @Override
+    public void updateFromDownload(Object result) {
+
+    }
+
+    @Override
+    public NetworkInfo getActiveNetworkInfo() {
+        return null;
+    }
+
+    @Override
+    public void onProgressUpdate(int progressCode, int percentComplete) {
+
+    }
+
+    @Override
+    public void finishDownloading() {
+
+    }
+
+    @Override
+    public String getRegMail() {
+        return null;
+    }
+
+    @Override
+    public String getRegPassword() {
+        return null;
+    }
+
+    @Override
+    public String getMail() {
+        return null;
+    }
+
+    @Override
+    public String getPassword() {
+        return null;
+    }
+
+    @Override
+    public String getAccesstoken() {
+        return null;
+    }
+
+    @Override
+    public String getNumber() {
+        return null;
+    }
+
+    @Override
+    public String getZip() {
+        return null;
+    }
+
+    @Override
+    public String getCity() {
+        return null;
+    }
+
+    @Override
+    public String getStreet() {
+        return null;
+    }
+
+    @Override
+    public String getCountry() {
+        return null;
+    }
+
+    @Override
+    public String getGender() {
+        return null;
+    }
+
+    @Override
+    public String getFirstname() {
+        return null;
+    }
+
+    @Override
+    public String getLastname() {
+        return null;
+    }
+
+    @Override
+    public String getBirthday() {
+        return null;
+    }
+
+    @Override
+    public String getPhone() {
+        return null;
+    }
+
+    @Override
+    public void addrDataValidation() {
+
+    }
+
+    @Override
+    public void addrDataSuccess() {
+
+    }
+
+    @Override
+    public void addrDataError() {
 
     }
 }
