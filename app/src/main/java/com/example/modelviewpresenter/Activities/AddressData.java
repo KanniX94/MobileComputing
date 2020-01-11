@@ -142,7 +142,24 @@ public class AddressData extends AppCompatActivity implements AddrDataView, Down
 
     @Override
     public void onProgressUpdate(int progressCode, int percentComplete) {
-
+        switch(progressCode) {
+            // You can add UI behavior for progress updates here.
+            case Progress.ERROR:
+                Toast.makeText(getApplicationContext(), "ERROR : " + progressCode, Toast.LENGTH_SHORT).show();
+                break;
+            case Progress.CONNECT_SUCCESS:
+                Toast.makeText(getApplicationContext(), "CONNECT_SUCCESS : " + progressCode, Toast.LENGTH_SHORT).show();
+                break;
+            case Progress.GET_INPUT_STREAM_SUCCESS:
+                Toast.makeText(getApplicationContext(), "GET_INPUT_STREAM_SUCCESS : " + progressCode, Toast.LENGTH_SHORT).show();
+                break;
+            case Progress.PROCESS_INPUT_STREAM_IN_PROGRESS:
+                Toast.makeText(getApplicationContext(), "PROCESS_INPUT_STREAM_IN_PROGRESS : " + progressCode, Toast.LENGTH_SHORT).show();
+                break;
+            case Progress.PROCESS_INPUT_STREAM_SUCCESS:
+                Toast.makeText(getApplicationContext(), "PROCESS_INPUT_STREAM_SUCCESS : " + progressCode, Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 
     @Override
