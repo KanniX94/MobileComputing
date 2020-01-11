@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -89,6 +90,33 @@ public class AddressData extends AppCompatActivity implements AddrDataView, Down
             }
         }
     };
+
+    @Override
+    public void addrDataValidation() {
+        Toast.makeText(getApplicationContext(),"Register Validation", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void addrDataSuccess() {
+        startDownload(5);
+        Toast.makeText(getApplicationContext(),"Register Success", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void addrDataError() {
+        Toast.makeText(getApplicationContext(),"Register Error", Toast.LENGTH_LONG).show();
+    }
+
+    private void startDownload(int t) {
+        if (!downloading && networkFragment != null) {
+            // Execute the async download.
+            int downloadType = t;
+            networkFragment.startDownload(downloadType);
+            downloading = true;
+
+        }
+    }
+
 
     @Override
     public void updateFromDownload(Object result) {
@@ -183,20 +211,5 @@ public class AddressData extends AppCompatActivity implements AddrDataView, Down
     @Override
     public String getPhone() {
         return null;
-    }
-
-    @Override
-    public void addrDataValidation() {
-
-    }
-
-    @Override
-    public void addrDataSuccess() {
-
-    }
-
-    @Override
-    public void addrDataError() {
-
     }
 }
