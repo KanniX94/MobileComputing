@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.modelviewpresenter.Network.DownloadCallback;
 import com.example.modelviewpresenter.Network.NetworkFragment;
+import com.example.modelviewpresenter.Presenter.RtoSPresenter;
 import com.example.modelviewpresenter.R;
 import com.example.modelviewpresenter.View.RtoSView;
 
@@ -25,7 +26,7 @@ public class ReadyToStart extends AppCompatActivity implements RtoSView, Downloa
     // downloads with consecutive button clicks.
     private boolean downloading = false;
 
-
+    RtoSPresenter mRtoSPresenter;
 
     Button btnDone;
 
