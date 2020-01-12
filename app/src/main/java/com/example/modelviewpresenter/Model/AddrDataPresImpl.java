@@ -1,8 +1,12 @@
 package com.example.modelviewpresenter.Model;
 
+
+
 import android.text.TextUtils;
+import android.widget.EditText;
 
 import com.example.modelviewpresenter.Presenter.AddrDataPresenter;
+import com.example.modelviewpresenter.R;
 import com.example.modelviewpresenter.View.AddrDataView;
 
 public class AddrDataPresImpl implements AddrDataPresenter {
@@ -23,4 +27,7 @@ public class AddrDataPresImpl implements AddrDataPresenter {
         }
 
     }
+
+
 }
+

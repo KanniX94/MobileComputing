@@ -9,9 +9,15 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.modelviewpresenter.Network.DownloadCallback;
+
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.modelviewpresenter.R;
 
 public class ThxForRegView extends AppCompatActivity {
+
 
     Button btGoToLogin;
 
@@ -21,12 +27,18 @@ public class ThxForRegView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thxforreg);
 
+
         btGoToLogin = findViewById(R.id.btGoToLogin);
         Intent intent = new Intent(ThxForRegView.this, MainActivity.class);
         startActivity(intent);
 
 
+
     }
 
 
+
 }
+
+
+
