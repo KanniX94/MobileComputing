@@ -2,6 +2,10 @@ package com.example.modelviewpresenter.Network;
 
 import android.net.NetworkInfo;
 
+
+
+import android.net.NetworkInfo;
+
 public interface DownloadCallback<T> {
     interface Progress {
         int ERROR = -1;
@@ -52,7 +56,7 @@ public interface DownloadCallback<T> {
     String getStreet();
     String getCountry();
     //Personal data
-    String getGender();
+    Integer getGender();
     String getFirstname();
     String getLastname();
     String getBirthday();
