@@ -219,12 +219,12 @@ public class NetworkFragment extends Fragment {
             HttpsURLConnection connection = null;
             String result = null;
             String s;
-<<<<<<< HEAD
+
             JSONObject cred   = new JSONObject();
-=======
+
             JSONObject cred = new JSONObject();
 
->>>>>>> master
+
             //Registration
             //RegView mReg = new RegView();
             String regmail = callback.getRegMail();
@@ -343,19 +343,19 @@ public class NetworkFragment extends Fragment {
                 connection.setReadTimeout(3000);
                 // Timeout for connection.connect() arbitrarily set to 3000ms.
                 connection.setConnectTimeout(3000);
-<<<<<<< HEAD
+
 
 
                 if(downloadType == 5 || downloadType == 6){
                     connection.setRequestProperty("Content-Type", "application/json");
                     connection.setRequestProperty("Authorization", "Bearer " + mAccesstoken);
                 }else{
-=======
+
                 if (downloadType == 5 || downloadType == 6) {
                     connection.setRequestProperty("Content-Type", "application/json");
                     connection.setRequestProperty("Authorization", mAccesstoken);
                 } else {
->>>>>>> master
+
                     connection.setRequestProperty("Content-Type", "application/json");
                     connection.setRequestProperty("Accept", "application/json");
                 }
@@ -368,15 +368,15 @@ public class NetworkFragment extends Fragment {
 
                 } else if (downloadType == 4) {
                     connection.setRequestMethod("DEL");
-<<<<<<< HEAD
+
 
                 } else if (downloadType == 5) {
                     connection.setRequestMethod("POST");
 
-=======
+
                 } else if (downloadType == 5) {
                     connection.setRequestMethod("POST");
->>>>>>> master
+
                 } else if (downloadType == 6) {
                     connection.setRequestMethod("PUT");
                 }
