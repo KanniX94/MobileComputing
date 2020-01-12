@@ -1,15 +1,70 @@
 package com.example.modelviewpresenter.Activities;
 
+import android.content.Intent;
 import android.net.NetworkInfo;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.modelviewpresenter.Network.DownloadCallback;
+import com.example.modelviewpresenter.Network.NetworkFragment;
+import com.example.modelviewpresenter.R;
 import com.example.modelviewpresenter.View.RtoSView;
 
 public class ReadyToStart extends AppCompatActivity implements RtoSView, DownloadCallback {
 
+    String accesstoken;
 
+    // Keep a reference to the NetworkFragment, which owns the AsyncTask object
+    // that is used to execute network ops.
+    private NetworkFragment networkFragment;
+
+    // Boolean telling us whether a download is in progress, so we don't trigger overlapping
+    // downloads with consecutive button clicks.
+    private boolean downloading = false;
+
+
+
+    Button btnDone;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ready_to_start);
+
+
+        defineButton();
+        btnDone= findViewById(R.id.btnDone);
+
+        Intent intent = getIntent();
+        accesstoken = intent.getStringExtra(MainActivity.ACCESS_TOKEN);
+
+
+        networkFragment = NetworkFragment.getInstance(getSupportFragmentManager(), "https://dev.api.digital-nursing-service.ucura.com/api/v1");
+
+    }
+
+    public void defineButton() {
+        findViewById(R.id.btnDone).setOnClickListener(buttonClickListener);
+    }
+
+    public View.OnClickListener buttonClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.btnDone:
+
+                    Intent intent = new Intent(ReadyToStart.this, Dashboard.class);
+                    intent.putExtra(MainActivity.ACCESS_TOKEN, accesstoken);
+                    startActivity(intent);
+
+                    break;
+            }
+        }
+    };
 
 
     @Override
