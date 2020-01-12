@@ -70,7 +70,7 @@ public class AddressData extends AppCompatActivity implements AddrDataView, Down
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.btnPersonalNext:
+                case R.id.btnAddressNext:
                     //String gender = .getText().toString();
                     String street = etStreet.getText().toString();
                     String hausnummer = etHausnummer.getText().toString();

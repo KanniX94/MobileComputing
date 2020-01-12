@@ -110,7 +110,7 @@ public class ReadyToStart extends AppCompatActivity implements RtoSView, Downloa
 
     @Override
     public String getAccesstoken() {
-        return null;
+        return accesstoken;
     }
 
     @Override
