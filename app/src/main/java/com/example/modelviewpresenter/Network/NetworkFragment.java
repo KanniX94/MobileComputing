@@ -222,7 +222,7 @@ public class NetworkFragment extends Fragment {
 
             JSONObject cred   = new JSONObject();
 
-            JSONObject cred = new JSONObject();
+
 
 
             //Registration
