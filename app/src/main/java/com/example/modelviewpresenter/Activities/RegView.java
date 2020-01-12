@@ -243,7 +243,7 @@ public class RegView extends AppCompatActivity implements RegisterView, Download
     }
 
     @Override
-    public String getGender() {
+    public Integer getGender() {
         return null;
     }
 

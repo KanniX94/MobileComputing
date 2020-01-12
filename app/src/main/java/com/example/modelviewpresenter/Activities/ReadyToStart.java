@@ -139,7 +139,7 @@ public class ReadyToStart extends AppCompatActivity implements RtoSView, Downloa
     }
 
     @Override
-    public String getGender() {
+    public Integer getGender() {
         return null;
     }
 

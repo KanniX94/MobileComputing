@@ -226,7 +226,7 @@ public class MainActivity extends AppCompatActivity implements LoginView, Downlo
     }
 
     @Override
-    public String getGender() {
+    public Integer getGender() {
         return null;
     }
 

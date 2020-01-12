@@ -226,7 +226,7 @@ public class AddressData extends AppCompatActivity implements AddrDataView, Down
     }
 
     @Override
-    public String getGender() {
+    public Integer getGender() {
         return null;
     }
 
