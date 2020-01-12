@@ -136,11 +136,9 @@ public class NetworkFragment extends Fragment {
         class Result {
             public String resultValue;
             public Exception exception;
-
             public Result(String resultValue) {
                 this.resultValue = resultValue;
             }
-
             public Result(Exception exception) {
                 this.exception = exception;
             }
@@ -179,7 +177,7 @@ public class NetworkFragment extends Fragment {
                     } else {
                         throw new IOException("No response received.");
                     }
-                } catch (Exception e) {
+                } catch(Exception e) {
                     result = new Result(e);
                 }
             }
@@ -219,12 +217,14 @@ public class NetworkFragment extends Fragment {
             HttpsURLConnection connection = null;
             String result = null;
             String s;
-
             JSONObject cred   = new JSONObject();
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> network
             //Registration
             //RegView mReg = new RegView();
             String regmail = callback.getRegMail();
@@ -345,17 +345,10 @@ public class NetworkFragment extends Fragment {
                 connection.setConnectTimeout(3000);
 
 
-
                 if(downloadType == 5 || downloadType == 6){
                     connection.setRequestProperty("Content-Type", "application/json");
                     connection.setRequestProperty("Authorization", "Bearer " + mAccesstoken);
                 }else{
-
-                if (downloadType == 5 || downloadType == 6) {
-                    connection.setRequestProperty("Content-Type", "application/json");
-                    connection.setRequestProperty("Authorization", mAccesstoken);
-                } else {
-
                     connection.setRequestProperty("Content-Type", "application/json");
                     connection.setRequestProperty("Accept", "application/json");
                 }
@@ -368,11 +361,6 @@ public class NetworkFragment extends Fragment {
 
                 } else if (downloadType == 4) {
                     connection.setRequestMethod("DEL");
-
-
-                } else if (downloadType == 5) {
-                    connection.setRequestMethod("POST");
-
 
                 } else if (downloadType == 5) {
                     connection.setRequestMethod("POST");
@@ -387,7 +375,7 @@ public class NetworkFragment extends Fragment {
                 String js = cred.toString();
 
 
-                OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
+                OutputStreamWriter wr= new OutputStreamWriter(connection.getOutputStream());
                 wr.write(cred.toString());
                 wr.flush();
                 wr.close();
@@ -417,7 +405,6 @@ public class NetworkFragment extends Fragment {
             }
             return result;
         }
-
         /**
          * Converts the contents of an InputStream to a String.
          */
