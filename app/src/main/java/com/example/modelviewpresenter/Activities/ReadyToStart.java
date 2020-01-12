@@ -5,6 +5,7 @@ import android.net.NetworkInfo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.modelviewpresenter.Network.DownloadCallback;
+import com.example.modelviewpresenter.View.RtoSView;
 
 public class ReadyToStart extends AppCompatActivity implements RtoSView, DownloadCallback {
 
