@@ -29,6 +29,7 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
+
 /**
  * Implementation of headless Fragment that runs an AsyncTask to fetch data from the network.
  */
@@ -68,8 +69,6 @@ public class NetworkFragment extends Fragment {
         urlString = getArguments().getString(URL_KEY);
         setRetainInstance(true);
         //...
-
-
     }
 
     @Override
@@ -119,12 +118,10 @@ public class NetworkFragment extends Fragment {
 
         private DownloadCallback<String> callback;
         private int downloadType = 0;
-        private String accesstoken = "";
 
         DownloadTask(DownloadCallback<String> callback, int t) {
             setCallback(callback);
             downloadType = t;
-
         }
 
         void setCallback(DownloadCallback<String> callback) {
@@ -222,8 +219,12 @@ public class NetworkFragment extends Fragment {
             HttpsURLConnection connection = null;
             String result = null;
             String s;
+<<<<<<< HEAD
+            JSONObject cred   = new JSONObject();
+=======
             JSONObject cred = new JSONObject();
 
+>>>>>>> master
             //Registration
             //RegView mReg = new RegView();
             String regmail = callback.getRegMail();
@@ -245,11 +246,13 @@ public class NetworkFragment extends Fragment {
 
             //Personal data
 
-            String gender = callback.getGender();
-            String firstname = callback.getFirstname();
-            String lastname = callback.getLastname();
+            Integer gender = callback.getGender();
+            //Integer genderInt = Integer.valueOf(gender);
+            String first_name = callback.getFirstname();
+            String surname = callback.getLastname();
             String birthday = callback.getBirthday();
             String phone = callback.getPhone();
+
             switch (downloadType) {
                 case 0:
                     //Error
@@ -317,9 +320,9 @@ public class NetworkFragment extends Fragment {
                     s = url.toString();
                     u = new URL(s + "/profile");
                     try {
-                        cred.put("gender", Integer.parseInt(gender));
-                        cred.put("first_name", firstname);
-                        cred.put("surname", lastname);
+                        cred.put("gender", gender);
+                        cred.put("first_name", first_name);
+                        cred.put("surname", surname);
                         cred.put("birthday", birthday);
                         cred.put("phone", phone);
                         //connection.setRequestProperty("Authorization", mAccesstoken);
@@ -332,6 +335,7 @@ public class NetworkFragment extends Fragment {
                     // Error
                     break;
 
+
             }
             try {
                 connection = (HttpsURLConnection) u.openConnection();
@@ -339,22 +343,40 @@ public class NetworkFragment extends Fragment {
                 connection.setReadTimeout(3000);
                 // Timeout for connection.connect() arbitrarily set to 3000ms.
                 connection.setConnectTimeout(3000);
+<<<<<<< HEAD
+
+
+                if(downloadType == 5 || downloadType == 6){
+                    connection.setRequestProperty("Content-Type", "application/json");
+                    connection.setRequestProperty("Authorization", "Bearer " + mAccesstoken);
+                }else{
+=======
                 if (downloadType == 5 || downloadType == 6) {
                     connection.setRequestProperty("Content-Type", "application/json");
                     connection.setRequestProperty("Authorization", mAccesstoken);
                 } else {
+>>>>>>> master
                     connection.setRequestProperty("Content-Type", "application/json");
                     connection.setRequestProperty("Accept", "application/json");
                 }
 
                 if (downloadType == 1 || downloadType == 2) {
                     connection.setRequestMethod("POST");
+
                 } else if (downloadType == 3) {
                     connection.setRequestMethod("PUT");
+
                 } else if (downloadType == 4) {
                     connection.setRequestMethod("DEL");
+<<<<<<< HEAD
+
                 } else if (downloadType == 5) {
                     connection.setRequestMethod("POST");
+
+=======
+                } else if (downloadType == 5) {
+                    connection.setRequestMethod("POST");
+>>>>>>> master
                 } else if (downloadType == 6) {
                     connection.setRequestMethod("PUT");
                 }
