@@ -218,13 +218,8 @@ public class NetworkFragment extends Fragment {
             String result = null;
             String s;
             JSONObject cred   = new JSONObject();
-<<<<<<< HEAD
 
 
-
-
-=======
->>>>>>> network
             //Registration
             //RegView mReg = new RegView();
             String regmail = callback.getRegMail();
