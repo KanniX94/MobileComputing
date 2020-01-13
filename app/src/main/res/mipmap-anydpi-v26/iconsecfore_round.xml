@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
-<<<<<<< HEAD
-    <background android:drawable="@drawable/iconsecfore_background"/>
-=======
-    <background android:drawable="@color/iconsecfore_background"/>
->>>>>>> 7b996d0afc52918e679ab23e81532aa53b865d11
+
+
     <foreground android:drawable="@mipmap/iconsecfore_foreground"/>
 </adaptive-icon>
