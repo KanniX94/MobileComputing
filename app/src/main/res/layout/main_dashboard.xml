@@ -19,15 +19,7 @@
 
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="260dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:layout_marginTop="30dp"
-        card_view:cardCornerRadius="10dp"
-        android:background="#FFF">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,51 +53,7 @@
 
 
 
-    </androidx.cardview.widget.CardView>
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/view2"
-        android:layout_width="match_parent"
-        android:layout_height="260dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:layout_marginTop="30dp"
-        card_view:cardCornerRadius="10dp"
-        android:background="#FFF">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:text="Next Appointment"
-                android:textSize="25sp"
-                android:textColor="#464e51"
-                android:textStyle="bold"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="10sp"
-                android:background="#c0c0c0"/>
-
-            <ListView
-                android:id="@+id/nextAptmntList"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
-
-
-
-
-    </androidx.cardview.widget.CardView>
 
 </LinearLayout>
