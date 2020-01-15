@@ -5,8 +5,14 @@ package com.example.modelviewpresenter.Activities;
 import android.content.Intent;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +27,8 @@ public class Dashboard extends AppCompatActivity implements DashboardView, Downl
 
     String accesstoken;
 
+    String items[] = new String[] {"Alfred Nachka", "Stefan Rudinsky", "Barbara Klause", "Sigfried Holger", "Tanja Rud", "Angelina Mozek", "Wolfang Schmidt", "Paul Müller", "Lukas Gröner", "Lisa Maria Schwan", "Markus Suppes", "Fabian Burger","Sabina Matic"};
+
     // Keep a reference to the NetworkFragment, which owns the AsyncTask object
     // that is used to execute network ops.
     private NetworkFragment networkFragment;
@@ -33,11 +41,36 @@ public class Dashboard extends AppCompatActivity implements DashboardView, Downl
 
     //Button btnAddressNext;
 
+    ListView mListview;
+    TextView mTextview;
+    //RecyclerView.LayoutManager mLayoutManager;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_dashboard);
+
+        mTextview = findViewById(R.id.hiuser);
+        mListview = findViewById(R.id.list_view);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
+        mListview.setAdapter(adapter);
+
+        mTextview.setText("Hi User!");
+
+        mListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(Dashboard.this, items[position], Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(Dashboard.this, CaregiverInfo.class));
+
+            }
+        });
+
+
 
         mDashboardPresenter = new DashboardPresImpl(Dashboard.this);
         //defineButton();
@@ -46,7 +79,17 @@ public class Dashboard extends AppCompatActivity implements DashboardView, Downl
         accesstoken = intent.getStringExtra(MainActivity.ACCESS_TOKEN);
         networkFragment = NetworkFragment.getInstance(getSupportFragmentManager(), "https://dev.api.digital-nursing-service.ucura.com/api/v1");
 
+
+        //mRecyclerView.setHasFixedSize(true);
+        //mLayoutManager = new LinearLayoutManager(this);
+
+
     }
+
+    void showCaregiverInfo(){
+        startActivity(new Intent(Dashboard.this, CaregiverInfo.class));
+    }
+
 
     @Override
     public void updateFromDownload(Object result) {
@@ -125,7 +168,8 @@ public class Dashboard extends AppCompatActivity implements DashboardView, Downl
 
     @Override
     public String getFirstname() {
-        return null;
+        EditText firstname= findViewById(R.id.etPersonalName);
+        return firstname.getText().toString();
     }
 
     @Override
