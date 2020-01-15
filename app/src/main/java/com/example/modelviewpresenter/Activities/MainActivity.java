@@ -84,7 +84,9 @@ public class MainActivity extends AppCompatActivity implements LoginView, Downlo
                     break;
                 case R.id.btGoToReg:
                     //mRegisterPresenter.moveToRegisterView();
-                    moveToRegPage();
+                    //moveToRegPage();
+                    startActivity(new Intent(MainActivity.this, Dashboard.class));
+
                     break;
             }
         }

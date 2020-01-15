@@ -23,6 +23,7 @@
         <activity android:name=".Activities.ReadyToStart"></activity>
         <activity android:name=".Activities.Dashboard"></activity>
         <activity android:name=".Activities.RegView"></activity>
+        <activity android:name=".Activities.CaregiverInfo"></activity>
         <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
