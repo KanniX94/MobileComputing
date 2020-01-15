@@ -1,6 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/gradient">
+
+    <TextView
+        android:id="@+id/hiuser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="#FFF"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        android:text="Wolfgang Schmidt" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="18dp"
+        android:layout_marginBottom="300dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="70dp"
+        card_view:cardCornerRadius="10dp"
+        android:background="#FFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="Information"
+                android:textSize="25sp"
+                android:textColor="#464e51"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10sp"
+                android:background="#c0c0c0"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="Name: Wolfang Schmidt\n\nCity: Dettingen\n\nTreatment: Cardiology"
+                android:textSize="20sp"
+                android:textColor="#464e51"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnConnect"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:padding="12dp"
+                android:textSize="22sp"
+                android:textColor="#FFF"
+                android:textStyle="bold"
+                android:background="#00f2fe"
+                android:text="contact"
+                android:gravity="center"
+
+                />
+
+
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
 
 </LinearLayout>
+
+
