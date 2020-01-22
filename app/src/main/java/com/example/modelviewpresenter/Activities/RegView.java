@@ -24,7 +24,7 @@ public class RegView extends AppCompatActivity implements RegisterView, Download
 
     EditText etrUserName, etrPassword, etrConfirmPassword;
     RegisterPresenter mRegisterPresenter;
-    Button btnRegister;
+    Button btnRegister, btGoToLog;
 
 
     // Keep a reference to the NetworkFragment, which owns the AsyncTask object
@@ -49,6 +49,7 @@ public class RegView extends AppCompatActivity implements RegisterView, Download
         mRegisterPresenter = new RegPresenterImpl(RegView.this);
 
         btnRegister = findViewById(R.id.btnRegister);
+        btGoToLog = findViewById(R.id.btGoToLog);
         //btnRegister.setOnClickListener(this);
 
         //textView = this.findViewById(R.id.textView);
@@ -61,6 +62,7 @@ public class RegView extends AppCompatActivity implements RegisterView, Download
     public void defineButton() {
         findViewById(R.id.btnRegister).setOnClickListener(buttonClickListener);
         findViewById(R.id.textAlreadyRegist).setOnClickListener(buttonClickListener);
+        findViewById(R.id.btGoToLog).setOnClickListener(buttonClickListener);
 
     }
 

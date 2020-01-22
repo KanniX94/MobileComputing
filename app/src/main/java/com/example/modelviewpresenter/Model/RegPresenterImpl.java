@@ -24,7 +24,7 @@ public class RegPresenterImpl implements RegisterPresenter {
         }
         else{
 
-            if(password.equals(confirmPassword) && password.length() == 8){
+            if(password.equals(confirmPassword) && password.length() >= 8){
 
                 //Put logic of fragment here
 
